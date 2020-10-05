@@ -23,12 +23,7 @@ export default {
     return {
       msg:"",
       isOnline:false,
-      history:[
-        {content:"你好",time:"2020/10/04 22:18",opposite:false},
-        {content:"安安",time:"2020/10/04 22:18",opposite:true},
-        {content:"約嗎?",time:"2020/10/04 22:18",opposite:false},
-        {content:"嗎?",time:"2020/10/04 22:18",opposite:false},
-      ]
+      history:[]
     }
   },
   sockets: {
@@ -54,7 +49,8 @@ export default {
   methods: {
     sub() {
       if(!this.msg) return 0
-      this.$socket.emit("postMsg",this.msg)
+      let data={msg:this.msg,opposite:false}
+      this.$socket.emit("postMsg",data)
       this.msg=""
     }
   }
