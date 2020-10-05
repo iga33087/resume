@@ -22,13 +22,21 @@ export default {
   data() {
     return {
       msg:"",
+      socketId:"",
       isOnline:false,
-      history:[]
+      history:[],
     }
   },
   sockets: {
     connect() {
       console.log('聊天室準備就緒')
+      this.socketId=this.$socket.id
+      this.sockets.subscribe(this.socketId,(data)=> {
+        this.history.push(data)
+        this.$nextTick(()=> {
+          this.$refs.chartBoxContent.scrollTop=9999999
+        })
+      })
     },
     disconnect() {
       console.log('聊天室已斷線')
@@ -37,14 +45,6 @@ export default {
     getAdminOnline(data) {
       this.isOnline=data
     }
-  },
-  created() {
-    this.sockets.subscribe("99968",(data)=> {
-      this.history.push(data)
-      this.$nextTick(()=> {
-        this.$refs.chartBoxContent.scrollTop=9999999
-      })
-    })
   },
   methods: {
     sub() {
