@@ -2,6 +2,7 @@
   <div class="chartBox">
     <div class="chartBoxTitle">
       <div class="chartBoxTitleLight" :style="{'background-color':isOnline ? '#A8D8B9' : ''}"></div>
+      <div class="chartBoxTitleText">即時聊天</div>
       <div class="chartBoxTitleText">{{isOnline ? '在線中' : '離線中'}}</div>
     </div>
     <div class="chartBoxContent" ref="chartBoxContent">

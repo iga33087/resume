@@ -272,3 +272,16 @@ html,body {
     }
   }
 }
+
+.title {
+  background-color: $color1;
+  color:#fff;
+  padding: 10px;
+  border-radius: 50px;
+  font-size: $fontSize2;
+  text-align: center;
+}
+
+.indexItem {
+  margin: 0 0 20px 0; 
+}
