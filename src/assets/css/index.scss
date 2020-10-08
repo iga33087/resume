@@ -155,23 +155,44 @@ html,body {
   }
 }
 
+.PROFILEContent {
+  color:$color1;
+  font-size: $fontSize2;
+  @include rwd($sm) {
+    font-size: $fontSize4;
+  }  
+}
+
 .portfolioCard {
-  width: calc(100% / 4);
-  height: 300px;
-  cursor: pointer;
+  display: flex;
+  margin: 0 0 10px 0;
   .portfolioCardImg {
-    height: 250px;
-    background-color: $color1;
+    width: 200px;
+    height: 200px;
+    background-color: #222;
   }
-  .portfolioCardContent {
-    height: 50px;
+  .portfolioCardInfo {
+    width: calc(100% - 200px);
+    background-color: #888;
+  }
+  .portfolioCardInfoTitle {
+    height: 30px;
+    font-size: $fontSize3;
+    font-weight: bold;
+    padding: 0 0 0 10px;
+  }
+  .portfolioCardInfoContent {
+    height: 140px;
+    padding: 0 0 0 10px;
+  }
+  .portfolioCardInfoUse {
+    height: 30px;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #eee;
+    justify-content: space-between;
+    padding: 0 0 0 10px;
   }
-  .portfolioCardUse {
-    display: none;
+  .portfolioCardInfoUseLabel {
+    font-weight: bold;
   }
 }
 
@@ -180,15 +201,19 @@ html,body {
     from {box-shadow: 0 0 2px #000 inset;}
     to {box-shadow: 0 0 5px #000 inset;}
   }
-  width: 400px;
+  width: 300px;
   height: 500px;
   position: fixed;
-  bottom:0;
+  bottom:-450px;
   right:0;
   box-shadow: 0 0 4px #222;
   border-radius: 10px 0 0 0;
   overflow: hidden;
   z-index: 97;
+  transition-duration: 0.2s;
+  @include rwd($sm) {
+    display: none;
+  }
   .chartBoxTitle {
     height: 50px;
     display: flex;
@@ -198,6 +223,7 @@ html,body {
     font-size: $fontSize2;
     background-color: $color1;
     padding: 0 20px;
+    cursor: pointer;
   }
   .chartBoxTitleLight {
     width: 20px;
@@ -208,6 +234,22 @@ html,body {
     animation-duration: 1s;
     animation-iteration-count: infinite;
     animation-direction: alternate-reverse;
+  }
+  .chartBoxTitleIconsBox {
+    display: flex;
+    align-items: center;
+  }
+  .chartBoxTitleIconsBoxNewCount {
+    min-width: 20px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 10px;
+    background-color:#CB1B45;
+    margin: 0 10px 0 0;
+    cursor: pointer;
+  }
+  .chartBoxTitleIconsBoxItem {
+    cursor: pointer;
   }
   .chartBoxContent {
     height: 400px;
@@ -273,6 +315,12 @@ html,body {
   }
 }
 
+.isOpen {
+  width: 400px;
+  bottom:0;
+  right:0;   
+}
+
 .title {
   background-color: $color1;
   color:#fff;
@@ -280,6 +328,7 @@ html,body {
   border-radius: 50px;
   font-size: $fontSize2;
   text-align: center;
+  margin: 0 0 20px 0;
 }
 
 .indexItem {

@@ -25,11 +25,11 @@
     </div>
     <div class="indexItem PROFILE">
       <Title content="PROFILE"></Title>
-      <div>我是畢業於華夏科技大學資管系五專部的鄭愉，就讀五專期間對程式設計及網頁深感興趣，因此開始自學前端技術，如HTML、CSS、Javascript、AJAX、PHP等技術... 並且在五專四年級的專題報告應用所學，一個人打造了個"線上測驗平台"，並且獲得評審高分，專題報告分數為全班第二。五專畢業以後進入了小驢行股份有限公司，開始接觸了前端框架Vue，經過一年的磨練學會了非常多東西、經歷了非常多困難，為我前端身涯當中非常重要的里程碑，</div>
+      <div class="PROFILEContent">我是畢業於華夏科技大學資管系五專部的鄭愉，就讀五專期間對程式設計及網頁深感興趣，因此開始自學前端技術，如HTML、CSS、Javascript、AJAX、PHP等技術... 並且在五專四年級的專題報告應用所學，一個人打造了個"線上測驗平台"，並且獲得評審高分，專題報告分數為全班第二。<br><br>五專畢業以後進入了小驢行股份有限公司，開始接觸了前端框架Vue，以及各種前端的前沿技術，比如動態路由、打包及模組化設計等等... 在那邊也參與開發過許多專案，經過一年的磨練學會了非常多東西、克服了非常多困難，為我前端身涯當中非常重要的里程碑，</div>
     </div>
     <div class="indexItem PORTFOLIO">
       <Title content="PORTFOLIO"></Title>
-      <PortfolioCard></PortfolioCard>
+      <PortfolioCard v-for="(item,index) in PortfolioCardList" :key="index" :data="item"></PortfolioCard>
     </div>
   </div>
 </template>
@@ -40,7 +40,31 @@ import PortfolioCard from '@/components/PortfolioCard'
 import Title from '@/components/Title'
 
 export default {
-  components:{Label,PortfolioCard,Title}
+  components:{Label,PortfolioCard,Title},
+  data() {
+    return {
+      PortfolioCardList:[
+        {img:"",title:"線上測驗平台",content:"測試文字",use:"HTML、CSS、Javascript、PHP、MySQL、AJAX"},
+        {img:"",title:"長照交通接送平台",content:"測試文字",use:"HTML、CSS、Javascript、Vue、Webpack、Google API"},
+        {img:"",title:"大學校務活動系統",content:"測試文字",use:"HTML、CSS、Javascript、Vue、Vuex、、Webpack、Google API"},
+      ]
+    }
+  },
+  mounted() {
+    window.addEventListener('scroll',()=> {
+      let top=window.scrollY
+      let num=""
+      let ele=document.querySelectorAll(".indexItem")
+      console.log(ele[0].offsetTop)
+      for(let i in ele) {
+        if(top<=ele[i].offsetTop+100) {
+          num=i
+          break;
+        }
+      }
+      console.log(num)
+    });
+  }
 }
 </script>
 

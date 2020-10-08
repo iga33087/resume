@@ -1,9 +1,11 @@
 <template>
-  <div class="chartBox">
-    <div class="chartBoxTitle">
+  <div class="chartBox" :class="{'isOpen':isOpen}">
+    <div class="chartBoxTitle" @click="changeOpen">
       <div class="chartBoxTitleLight" :style="{'background-color':isOnline ? '#A8D8B9' : ''}"></div>
-      <div class="chartBoxTitleText">即時聊天</div>
-      <div class="chartBoxTitleText">{{isOnline ? '在線中' : '離線中'}}</div>
+      <div class="chartBoxTitleText">即時聊天({{isOnline ? '在線中' : '離線中'}})</div>
+      <div class="chartBoxTitleIconsBox">
+        <i class="chartBoxTitleIconsBoxItem" :class="isOpen ? 'icon-window-minimize-regular' : 'icon-window-maximize-regular'"></i>
+      </div>
     </div>
     <div class="chartBoxContent" ref="chartBoxContent">
       <div class="chartBoxContentItem" v-for="(item,index) in history" :key="index" :class="{'opposite':item.opposite}">
@@ -25,6 +27,7 @@ export default {
       msg:"",
       socketId:"",
       isOnline:false,
+      isOpen:false,
       history:[],
     }
   },
@@ -48,6 +51,15 @@ export default {
     }
   },
   methods: {
+    changeOpen() {
+      this.isOpen=!this.isOpen
+      this.$nextTick(()=> {
+        if(this.isOpen) {
+          this.newCount=0
+          this.$refs.chartBoxContent.scrollTop=9999999
+        }
+      })
+    },
     sub() {
       if(!this.msg) return 0
       let data={msg:this.msg,opposite:false}
