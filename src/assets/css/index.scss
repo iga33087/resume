@@ -166,30 +166,31 @@ html,body {
 .portfolioCard {
   display: flex;
   margin: 0 0 10px 0;
+  box-shadow: 0 0 3px #222;
   .portfolioCardImg {
-    width: 200px;
-    height: 200px;
-    background-color: #222;
+    width: 150px;
+    height: 150px;
+    background-color:$color1;
   }
   .portfolioCardInfo {
-    width: calc(100% - 200px);
-    background-color: #888;
+    width: calc(100% - 150px);
+    padding: 0 10px;
+    box-sizing: border-box;
   }
   .portfolioCardInfoTitle {
     height: 30px;
     font-size: $fontSize3;
     font-weight: bold;
-    padding: 0 0 0 10px;
+    color:$color1;
   }
   .portfolioCardInfoContent {
-    height: 140px;
-    padding: 0 0 0 10px;
+    height: 90px;
   }
   .portfolioCardInfoUse {
     height: 30px;
     display: flex;
     justify-content: space-between;
-    padding: 0 0 0 10px;
+    color:$color1;
   }
   .portfolioCardInfoUseLabel {
     font-weight: bold;
