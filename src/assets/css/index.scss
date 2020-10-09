@@ -125,6 +125,13 @@ html,body {
       }
     }
   }
+  .isChange {
+    background-color: $color1;
+    color:#fff;
+    &::after {
+      display: block;
+    }
+  }
 }
 
 .label {
@@ -171,26 +178,51 @@ html,body {
     width: 150px;
     height: 150px;
     background-color:$color1;
+    @include rwd($sm) {
+      width: 60px;
+      height: 60px;
+    } 
   }
   .portfolioCardInfo {
     width: calc(100% - 150px);
     padding: 0 10px;
     box-sizing: border-box;
+    @include rwd($sm) {
+      width: calc(100% - 60px);
+    } 
   }
   .portfolioCardInfoTitle {
     height: 30px;
     font-size: $fontSize3;
     font-weight: bold;
     color:$color1;
+    display: flex;
+    justify-content: space-between;
+    @include rwd($sm) {
+      font-size: $fontSize4;
+    } 
+  }
+  .portfolioCardInfoTitleUrl {
+    text-decoration:none;
+    color:$color1;
   }
   .portfolioCardInfoContent {
     height: 90px;
+    padding: 10px;
+    box-sizing: border-box;
+    color:$color1;
+    @include rwd($sm) {
+      display: none;
+    } 
   }
   .portfolioCardInfoUse {
     height: 30px;
     display: flex;
     justify-content: space-between;
     color:$color1;
+    @include rwd($sm) {
+      display: none;
+    } 
   }
   .portfolioCardInfoUseLabel {
     font-weight: bold;
