@@ -51,6 +51,9 @@ export default {
       ]
     }
   },
+  created() {
+    this.$api.addView()
+  },
   mounted() {
     window.addEventListener('scroll',()=> {
       let top=window.scrollY
