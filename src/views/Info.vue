@@ -54,7 +54,7 @@ export default {
   created() {
     this.$api.addView()
   },
-  mounted() {
+  /*mounted() {
     window.addEventListener('scroll',()=> {
       let top=window.scrollY
       let num=""
@@ -68,7 +68,7 @@ export default {
       }
       console.log(num)
     });
-  }
+  }*/
 }
 </script>
 
