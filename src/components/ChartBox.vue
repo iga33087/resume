@@ -44,7 +44,6 @@ export default {
     },
     disconnect() {
       console.log('聊天室已斷線')
-      alert("聊天室已斷線")
     },
     getAdminOnline(data) {
       this.isOnline=data
@@ -61,6 +60,10 @@ export default {
       })
     },
     sub() {
+      if(!this.isOnline) {
+        alert("離線狀態時我收不到訊息喔，若想約面試可以使用人力銀行的私信功能來連絡我喔^_^")
+        return 0
+      }
       if(!this.msg) return 0
       let data={msg:this.msg,opposite:false}
       this.$socket.emit("postMsg",data)
