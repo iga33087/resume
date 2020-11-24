@@ -48,6 +48,8 @@ export default {
         {img:"",url:"https://ntpc.donkeymove.com/Client/login",title:"長照交通接送平台",content:"進入小驢行公司的第一個專案，是個能供符合新北市長照交通條件的人預約接送的平台，廣泛的使用Google Map API以用來顯示地圖、畫出路線、計算車資，不僅使用前端框架Vue，也充分利用了Webpack模組化特點，讓程式碼不冗長、易維護、系統效能大幅提升，也能支援IE瀏覽器。",use:"HTML、CSS、Javascript、Vue、Webpack、Google API"},
         {img:"",url:"https://enroll.wzu.edu.tw/WZActivityFront/#/Member/login",title:"大學校務活動系統",content:"著重於活動報名功能的校務系統網站，也使用了Vuex來做全域管理，最大的特色為報名表單為動態的，使用者可於後台設定活動的報名表單，比如欄位名稱、欄位類型、欄位選項、是否必填等等... 然後會反映到前台的活動報名頁面",use:"HTML、CSS、SCSS、Javascript、Vue、Vuex、Webpack、Google API"},
         {img:"",url:"https://iga33087.github.io/ExcelTODEList/",title:"Excel TODOList",content:"以「如果只是個基本的TODOList，那就太簡單了」為發想而製作的系統，以基本的TODOList為基礎再加入xlsx、xls、ods、csv的匯入匯出功能，在兩天內製作出來的系統",use:"HTML、CSS、SCSS、Javascript、Vue、Webpack"},
+        {img:"",url:"https://iga33087.github.io/maskMap/",title:"口罩地圖",content:"主要使用leaflet的口罩地圖，可查到哪個縣市及地區有多少家藥局跟口罩",use:"HTML、CSS、SCSS、Javascript、Vue、Webpack、leaflet"},
+        {img:"",url:"https://iga33087.github.io/metaMap/#/Week",title:"天氣預報",content:"以Vue加上D3製作出來的天氣預報系統，拉動上方的拉桿即可將天氣資料反映在地圖上，API為中央氣象局所提供",use:"HTML、CSS、SCSS、Javascript、Vue、Webpack、D3"},
       ]
     }
   },
