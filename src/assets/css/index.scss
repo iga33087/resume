@@ -176,7 +176,7 @@ html,body {
   box-shadow: 0 0 3px #222;
   position: relative;
   .portfolioCardImg {
-    width: 150px;
+    width: 10px;
     height: 150px;
     background-color:$color1;
     @include rwd($sm) {
@@ -185,7 +185,7 @@ html,body {
     } 
   }
   .portfolioCardInfo {
-    width: calc(100% - 150px);
+    width: calc(100% - 10px);
     padding: 0 10px;
     box-sizing: border-box;
     background-color: #fff;
