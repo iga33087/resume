@@ -3,7 +3,7 @@
     <div class="portfolioCardInfo">
       <div class="portfolioCardInfoTitle">
         <div>{{data.title}}</div>
-        <a class="portfolioCardInfoTitleUrl" :href="data.url" target="_blank">點擊前往</a>
+        <a class="portfolioCardInfoTitleUrl" :href="data.url" target="_blank">點擊前往 ➤</a>
       </div>
       <div class="portfolioCardInfoContent" v-html="data.content"></div>
       <div class="portfolioCardInfoUse">
