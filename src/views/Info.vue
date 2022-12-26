@@ -10,7 +10,7 @@
       <Label title="聯絡方式" text="0903615478"></Label>
       <Label title="居住地區" text="新北市板橋區"></Label>
       <Label title="希望待遇" text="面議"></Label>
-      <Label title="工作經歷" text="前端工程師 (小驢行股份有限公司) 2019/8/20 ~ 2020/9/30<br>前端工程師 (中華龍網股份有限公司) 2021/3/2 ~ 2022/4/6"></Label>
+      <Label title="工作經歷" text="前端工程師 (小驢行股份有限公司) 2019/8/20 ~ 2020/9/30<br>前端工程師 (中華龍網股份有限公司) 2021/3/2 ~ 2022/4/6<br>前端工程師 (合華科技股份有限公司) 2022/4/19 ~ 2022/12/26"></Label>
       <Label title="可工作範圍" text="新北市、台北市"></Label>
       <Label title="學歷" text="華夏科技大學 - 資訊管理系 - 五專部"></Label>
     </div>
@@ -31,7 +31,7 @@
       </div>
     </div>
     <div class="indexItem PORTFOLIO animate__animated" v-scrollIn="'animate__bounceIn'">
-      <Title content="PORTFOLIO"></Title>
+      <Title content="PORTFOLIO  (作品由新到舊)"></Title>
       <PortfolioCard class="animate__animated" v-for="(item,index) in PortfolioCardList" :key="index" :data="item" v-scrollIn="'animate__bounceInLeft'"></PortfolioCard>
     </div>
   </div>
@@ -53,11 +53,21 @@ export default {
         {img:"",url:"https://iga33087.github.io/ExcelTODEList/",title:"Excel TODOList",content:"以「如果只是個基本的TODOList，那就太簡單了」為發想而製作的系統，以基本的TODOList為基礎再加入xlsx、xls、ods、csv的匯入匯出功能，在兩天內製作出來的系統",use:"HTML、CSS、SCSS、Javascript、Vue、Webpack"},
         {img:"",url:"https://iga33087.github.io/maskMap/",title:"口罩地圖",content:"主要使用leaflet的口罩地圖，可查到哪個縣市及地區有多少家藥局跟口罩",use:"HTML、CSS、SCSS、Javascript、Vue、Webpack、leaflet"},
         {img:"",url:"https://iga33087.github.io/metaMap/#/Week",title:"天氣預報",content:"以Vue加上D3製作出來的天氣預報系統，拉動上方的拉桿即可將天氣資料反映在地圖上，API為中央氣象局所提供",use:"HTML、CSS、SCSS、Javascript、Vue、Webpack、D3"},
+        {img:"",url:"https://yutest33087.com/",title:"愉之家 (部落格系統)",content:`
+          這是自己做出來的一整套包含使用者前台、管理者後台、後端API的部落格系統，起初的目的是想活用在中華龍網所學習到的知識，嘗試自己一個人從無到有，從專案的規劃、設計、寫前端、寫後端，到建置伺服器、買域名、正式上線、掛憑證都自己一手包辦，這套部落格系統功能雖然簡單，但是對我來講是非常寶貴的經驗，因為過程中我做到了許多前端工程師都做不到的事。<br/><br/>
+          既然是部落格，那麼重點就在於「頁面要能讓使用者找到」，選用Nuxt是考量到傳統的SPA網頁無法讓搜尋引擎有效的爬到內容，因此必須使用支援SSR的框架來實現<br/><br/>
+          登入系統嘗試加入Google、Facebook的第三方登入功能，在盡可能不收集使用者個資下完成登入<br/><br/>
+          伺服器的部分我選用了AWS的Lightsail服務建立了一個雲端的Linux VM，作業系統為Ubuntu，再用Route 53來買下Domain<br/><br/>
+          部屬方式是把前端程式、後端程式打包成Docker Image，再事先寫好Nginx的設定檔，利用反向代理來將服務串在同一個Domain之下<br/><br/>
+          接著用Docker Compose連同資料庫( MongoDB )在雲端VM一次把整個系統建置起來，最後再用Certbot來申請免費的SSL憑證<br/><br/>
+          由於是第一個所有東西都自己做的專案，途中遇到了許多挑戰，一一克服之後，變成了自己非常寶貴的經驗以及意義非凡的作品。`
+          ,use:"HTML、CSS、SCSS、Javascript、Vue、Nuxt、Node.js、MONGODB、AWS、DOCKER、NGINX、CERTBOT、GOOGLE OAUT"},
       ]
     }
   },
   created() {
-    this.$api.addView()
+    //this.$api.addView()
+    this.PortfolioCardList=this.PortfolioCardList.reverse()
   },
   /*mounted() {
     window.addEventListener('scroll',()=> {

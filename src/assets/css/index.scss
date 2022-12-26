@@ -177,7 +177,7 @@ html,body {
   position: relative;
   .portfolioCardImg {
     width: 10px;
-    height: 150px;
+    height: 100%;
     background-color:$color1;
     @include rwd($sm) {
       width: 60px;
@@ -185,13 +185,9 @@ html,body {
     } 
   }
   .portfolioCardInfo {
-    width: calc(100% - 10px);
-    padding: 0 10px;
+    width: 100%;
     box-sizing: border-box;
     background-color: #fff;
-    @include rwd($sm) {
-      width: calc(100% - 60px);
-    } 
   }
   .portfolioCardInfoTitle {
     height: 30px;
@@ -200,28 +196,30 @@ html,body {
     color:$color1;
     display: flex;
     justify-content: space-between;
+    background-color: $color1;
+    color:#fff;
+    padding: 2px 10px;
     @include rwd($sm) {
       font-size: $fontSize4;
     } 
   }
   .portfolioCardInfoTitleUrl {
     text-decoration:none;
-    color:$color1;
+    color:#fff;
   }
   .portfolioCardInfoContent {
-    height: 90px;
-    padding: 10px;
+    min-height: 90px;
+    padding: 16px;
     box-sizing: border-box;
     color:$color1;
     @include rwd($sm) {
-      display: none;
     } 
   }
   .portfolioCardInfoUse {
-    height: 30px;
     display: flex;
     justify-content: space-between;
     color:$color1;
+    padding: 2px 10px;
     @include rwd($sm) {
       display: none;
     } 
