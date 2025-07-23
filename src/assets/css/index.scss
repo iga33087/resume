@@ -1,369 +1,80 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
-@import url('./icons/css/icon1.css');
-$xs: 375px;
-$sm: 575.98px;
-$md: 767.98px;
-$lg: 991.98px;
-$xl: 1200px;
-$color1:#566C73;
-$fontColor1:#373C38;
-$fontSize1:1.5rem;
-$fontSize2:1.3rem;
-$fontSize3:1.2rem;
-$fontSize4:1.1rem;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&family=Oxanium:wght@200..800&display=swap');
 
-@mixin rwd($breakpoint) {
-  @media (max-width: $breakpoint) {
-    @content;
-  }
-}
+$color1:#336774;
+$color2:#F05E1C;
+$color3:#D0104C;
+
+$fontColor1:#FEDFE1;
 
 html,body {
-  height:100%;
-  margin: 0;
   padding: 0;
-  font-family: 'Oswald', sans-serif;
-  color:$fontColor1;
-}
-
-#app {
-  height: 100%;
-  position: relative;
-}
-
-.content {
-  display: flex;
-  width: 1200px;
-  min-height: calc(100% - 100px);
-  margin: 0 auto;
-  padding: 50px 0;
-  position: relative;
-  box-sizing: border-box;
-  @include rwd($md) {
-    width: 100%;
-  }
-}
-
-.contentBox {
-  width: 950px;
-  padding: 0px 0px 20px 50px;
-  box-sizing: border-box;
-  word-break: break-all;
-  @include rwd($md) {
-    width: calc(100% - 200px);
-  }
-  @include rwd($sm) {
-    width: calc(100%);
-    padding: 10px;
-  }
+  margin: 0;
+  font-family: 'Oxanium';
+  background-image: url('../img/bg.png');
+  background-attachment: fixed;
+  background-size: 100vw 100vh;
 }
 
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height:100px;
-  background-color: $color1;
-  color:#fff;
+  position: fixed;
+  top:0;
+  left:0;
+  width: 100vw;
+  height: 50px;
+  z-index: 2;
+  background: linear-gradient(#949494, transparent);
+  color:#444444;
   .headerBox {
-    width: 1200px;
+    width: 45vw;
+    height: 100%;
     margin: 0 auto;
     display: flex;
-    justify-content: flex-end;
-  }
-  .headerLogo {
-    margin: 50px 0 0 0;
-    font-size: 100px;
-    background: linear-gradient(360deg, $color1 33.5%, rgba(255, 255, 255, 1)33.5%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    @include rwd($sm) {
-      width: calc(100%);
-    }
-  }
-}
-
-.leftMenu {
-  width: 250px;
-  border-width: 0 2px 0 0;
-  border-color: $color1;
-  border-style: solid;
-  box-sizing: border-box;
-  @include rwd($md) {
-    width: 200px;
-  }
-  @include rwd($sm) {
-    display: none;
-  }
-  .leftMenuBox {
-    font-weight: bold;
-    font-size: $fontSize1;
-    position: sticky;
-    top:0;
-    left: 0;
-  }
-  .leftMenuBoxItem {
-    padding: 10px 0 10px 10px;
-    cursor: pointer;
-    position: relative;
-    &::after {
-     content: "";
-     width: 30px;
-     height: 100%;
-     background-color: $color1;
-     position: absolute;
-     top:0;
-     right:-30px;
-     clip-path: polygon(100% 50%, 0 0, 0 100%);
-     display: none;
-   }
-    &:hover {
-      background-color: $color1;
-      color:#fff;
-      &::after {
-        display: block;
-      }
-    }
-  }
-  .isChange {
-    background-color: $color1;
-    color:#fff;
-    &::after {
-      display: block;
-    }
-  }
-}
-
-.label {
-  display: flex;
-  align-items: center;
-  padding: 8px 0;
-  border-width: 0 0 1px 0;
-  border-color: #eee;
-  border-style: dashed;
-  color:$color1;
-  @include rwd($sm) {
-    justify-content: space-between;
-  }
-  .labelTitle {
-    margin: 0 50px 0 0;
-    font-weight: bold;
-    font-size: $fontSize1;
-    @include rwd($sm) {
-      font-size: $fontSize3;
-      margin:0px;
-    }
-  }
-  .labelText {
-    font-size: $fontSize2;
-    @include rwd($sm) {
-      font-size: $fontSize4;
-    }
-  }
-}
-
-.PROFILEContent {
-  color:$color1;
-  font-size: $fontSize2;
-  @include rwd($sm) {
-    font-size: $fontSize4;
-  }  
-}
-
-.portfolioCard {
-  display: flex;
-  margin: 0 0 10px 0;
-  box-shadow: 0 0 3px #222;
-  position: relative;
-  .portfolioCardImg {
-    width: 10px;
-    height: 100%;
-    background-color:$color1;
-    @include rwd($sm) {
-      width: 60px;
-      height: 60px;
-    } 
-  }
-  .portfolioCardInfo {
-    width: 100%;
-    box-sizing: border-box;
-    background-color: #fff;
-  }
-  .portfolioCardInfoTitle {
-    height: 30px;
-    font-size: $fontSize3;
-    font-weight: bold;
-    color:$color1;
-    display: flex;
-    justify-content: space-between;
-    background-color: $color1;
-    color:#fff;
-    padding: 2px 10px;
-    @include rwd($sm) {
-      font-size: $fontSize4;
-    } 
-  }
-  .portfolioCardInfoTitleUrl {
-    text-decoration:none;
-    color:#fff;
-  }
-  .portfolioCardInfoContent {
-    min-height: 90px;
-    padding: 16px;
-    box-sizing: border-box;
-    color:$color1;
-    @include rwd($sm) {
-    } 
-  }
-  .portfolioCardInfoUse {
-    display: flex;
-    justify-content: space-between;
-    color:$color1;
-    padding: 2px 10px;
-    @include rwd($sm) {
-      display: none;
-    } 
-  }
-  .portfolioCardInfoUseLabel {
-    font-weight: bold;
-  }
-}
-
-.chartBox {
-  @keyframes light {
-    from {box-shadow: 0 0 2px #000 inset;}
-    to {box-shadow: 0 0 5px #000 inset;}
-  }
-  width: 300px;
-  height: 500px;
-  position: fixed;
-  bottom:-450px;
-  right:0;
-  box-shadow: 0 0 4px #222;
-  border-radius: 10px 0 0 0;
-  overflow: hidden;
-  z-index: 97;
-  transition-duration: 0.2s;
-  @include rwd($sm) {
-    display: none;
-  }
-  .chartBoxTitle {
-    height: 50px;
-    display: flex;
     align-items: center;
     justify-content: space-between;
-    color:#fff;
-    font-size: $fontSize2;
-    background-color: $color1;
-    padding: 0 20px;
-    cursor: pointer;
   }
-  .chartBoxTitleLight {
-    width: 20px;
-    height: 20px;
-    border-radius: 100%;
-    margin: 0 10px 0 0;
-    animation-name: light;
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate-reverse;
-  }
-  .chartBoxTitleIconsBox {
-    display: flex;
-    align-items: center;
-  }
-  .chartBoxTitleIconsBoxNewCount {
-    min-width: 20px;
-    padding: 5px;
+  .headerBoxItem {
     text-align: center;
-    border-radius: 10px;
-    background-color:#CB1B45;
-    margin: 0 10px 0 0;
-    cursor: pointer;
+    font-size: 1.1rem;
   }
-  .chartBoxTitleIconsBoxItem {
-    cursor: pointer;
+  .headerBoxLogo {
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: bold;
   }
-  .chartBoxContent {
-    height: 400px;
-    padding: 10px 20px;
-    box-sizing: border-box;
-    overflow-y: scroll;
+}
+
+.cardBox {
+  height: 100vh;
+  .cardBoxInner {
+    width: 60vw;
+    height: 90vh;
+    background-color: rgba(54, 54, 54, 0.2);
+    box-shadow: 160px 40px 0px $color3;
+  }
+  .cardBoxInnerTitle {
+    font-size: 7rem;
+    font-weight: bold;
+    color:$color3;
+    padding: 0 2rem;
+  }
+  .cardBoxInnerBorder {
+    height: 2px;
+    margin: 0 2rem 2rem 2rem;
     background-color: #fff;
   }
-  .chartBoxContentItem {
-    max-width: 70%;
-    padding: 10px;
-    border:1px solid $color1;
-    margin: 0 0 10px 0;
-    border-radius: 10px;
-    box-sizing: border-box;
-    float: left;
-    clear: both;
-    word-wrap: break-word;
-  }
-  .opposite {
-    background-color: $color1;
-    color:#fff;
-    float: right;
-  }
-  .chartBoxButtonList {
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #eee;
-    padding: 0 20px;
-  }
-  .chartBoxButtonListInput {
-    width: 80%;
-    height: 30px;
-    box-sizing: border-box;
-    border-radius: 10px 0 0 10px;
-    padding: 0 10px;
-    border-width: 1px 0 1px 1px;
-    border-color: $color1;
-  }
-  .chartBoxContentItemTime {
-    font-size: 10px;
-    opacity: 0.5;
-    margin: 0 0 5px 0;
-  }
-  .chartBoxButtonListInput:focus {
-    outline: -webkit-focus-ring-color auto 0px;
-  }
-  .chartBoxButtonListSub {
-    width: 20%;
-    height: 30px;
-    background-color: $color1;
-    color:#fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 0 10px 10px 0;
-    cursor: pointer;
-    &:hover {
-      box-shadow: 0 0 5px #222 inset;
-    }
+  .cardBoxInnerContent {
+    font-size: 1.2rem;
+    padding: 0 2rem;
   }
 }
 
-.isOpen {
-  width: 400px;
-  bottom:0;
-  right:0;   
-}
-
-.title {
-  background-color: $color1;
-  color:#fff;
-  padding: 10px;
-  border-radius: 50px;
-  font-size: $fontSize2;
-  text-align: center;
-  margin: 0 0 20px 0;
-}
-
-.indexItem {
-  margin: 0 0 20px 0; 
+.rightCard {
+  display: flex;
+  justify-content: flex-end;
+  .cardBoxInner {
+    box-shadow: -160px 40px 0px $color3;
+  }
+  .cardBoxInnerTitle {
+    text-align: right;
+  }
 }
