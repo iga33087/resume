@@ -2,9 +2,14 @@
   <div class="label">
     <div class="labelTitle" :style="{'width':width}">
       <i :class="icon" v-if="icon"></i>  
-      {{title}} 
+      {{title}}
     </div>
-    <div class="labelText" :style="{'width':'calc(100% - '+width+')'}" v-html="text"></div>
+    <div class="labelText" :style="{'width':'calc(100% - '+width+')'}" v-html="text" v-if="text"></div>
+    <div class="labelText" :style="{'width':'calc(100% - '+width+')'}" v-else>
+      <div>
+        <slot />
+      </div>
+    </div>
   </div>
 </template>
 

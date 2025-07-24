@@ -10,7 +10,9 @@
       <Label title="聯絡方式" text="0903615478"></Label>
       <Label title="居住地區" text="新北市板橋區"></Label>
       <Label title="希望待遇" text="面議"></Label>
-      <Label title="工作經歷" text="前端工程師 (小驢行股份有限公司) 2019/8/20 ~ 2020/9/30<br>前端工程師 (中華龍網股份有限公司) 2021/3/2 ~ 2022/4/6<br>前端工程師 (合華科技股份有限公司) 2022/4/19 ~ 2022/12/26"><br>全端工程師 (新漢股份有限公司 - 椰棗科技) 2023/5/08 ~ 仍在職"></Label>
+      <Label title="工作經歷">
+        <div v-for="(item,index) in companyList" :key="index">{{item.position}} ({{item.title}}) {{item.time}}</div>
+      </Label>
       <Label title="可工作範圍" text="新北市、台北市"></Label>
       <Label title="學歷" text="華夏科技大學 - 資訊管理系 - 五專部"></Label>
     </div>
@@ -25,10 +27,7 @@
     </div>
     <div class="indexItem PROFILE animate__animated" v-scrollIn="'animate__bounceIn'">
       <Title content="PROFILE"></Title>
-      <div class="PROFILEContent">
-        我是畢業於華夏科技大學資管系五專部的鄭愉，就讀五專期間對程式設計及網頁深感興趣，因此開始自學前端技術，如HTML、CSS、Javascript、AJAX、PHP等技術... 並且在五專四年級的專題報告應用所學，一個人打造了個"線上測驗平台"，並且獲得評審高分，專題報告分數為全班第二，從此對這方面信心大增，想把所有時間精力投入在寫程式上，因此畢業後選擇以後馬上投入職場，不考慮繼續升學。<br><br>五專畢業以後進入了小驢行股份有限公司，開始接觸了前端框架Vue，以及各種前端的前沿技術，比如動態路由、打包及模組化設計等等... 在那邊也參與開發過許多專案，包括大型系統的前台、後台的獨立開發，經過一年的磨練學會了非常多東西、克服了非常多困難，為我前端身涯當中非常重要的里程碑。<br><br>
-        之後進入了中華龍網實力更是大幅成長，也逐漸往全端工程師的方向發展，除了維護及開發新產品，更是學到了AWS、Linux、Docker、CI/CD等等實用技能，這些都是許多前端工程師缺乏的技能，讓我一個專案從規劃、開發、建置環境到部署上線都可以一手包辦，相信必定能成為貴公司傑出的助力!
-      </div>
+      <div class="PROFILEContent" v-html="profile" />
     </div>
     <div class="indexItem PORTFOLIO animate__animated" v-scrollIn="'animate__bounceIn'">
       <Title content="PORTFOLIO  (作品由新到舊)"></Title>
@@ -46,6 +45,29 @@ export default {
   components:{Label,PortfolioCard,Title},
   data() {
     return {
+      companyList:[
+        {title:'小驢行股份有限公司',position:'前端工程師',time:'2019/8/20 ~ 2020/9/30'},
+        {title:'中華龍網股份有限公司',position:'前端工程師',time:'2021/3/2 ~ 2022/4/6'},
+        {title:'合華科技股份有限公司',position:'前端工程師',time:'2022/4/19 ~ 2022/12/26'},
+        {title:'新漢股份有限公司 - 椰棗科技',position:'高級工程師',time:'2023/5/08 ~ 仍在職'},
+      ],
+      profile:`
+      我是畢業於華夏科技大學資訊管理系五專部的鄭愉，目前已經有5年的網頁開發工作經驗(3年前端、2年全端)，熟悉Vue3、Nodejs、MongoDB、Webpack、Vite、Linux、Docker、CI/CD等等技術。<br/><br/>
+
+      就讀五專期間，因相關課程而對網頁開發以程式設計深感興趣，網頁開發尤其擅長，五專期間的專題報告甚至有自己一個人開發線上系統的經驗。<br/><br/>
+      
+      畢業以後，想把自己的時間精力全部投入自己熱愛的事，因此馬上投入職場，於小驢行擔任前端工程師一年，接觸到了Vue、SCSS、RWD、Webpack、前後端分離等等現代化網頁開發的技術，在那邊主要開發派車系統及校務系統，學到了非常多經驗，比如用Google API估算行車路程來計算車資、製作可動態生成表單的校務系統、以及解決瀏覽器相容性問題等等... 克服了非常多困難。<br/><br/>
+      
+      之後進入到中華龍網的一年多實力更是大幅成長，學到了AWS、Linux、Docker、CI/CD等等重要技能，這些都是許多前端工程師缺乏的技能，讓我一個專案從規劃、開發、建置環境到部署上線都可一手包辦。<br/><br/>
+      
+      在合華科技股份有限公司也學到了Vue3、Pinia、Vite等等前沿的網頁技術及工具。<br/><br/>
+      
+      之後來到了新漢股份有限公司的子公司「椰棗科技」，雖職稱為高級工程師，不過做的是全端工程師的職務，在那邊更是得到了一展長才的機會，充分利用自己累積的經驗及專業，負責公司大大小小的專案及任務，如:幫原本前後端混合的系統改善成前後端分離、配合AI工程師開發新產品並實現Docker化、透過CI/CD自動產生更新包來更新產品韌體、配合公司的參展開發出專用的儀表板等等...<br/><br/>
+      
+      在椰棗科技我主要開發資安閘道器以及其管理系統，也了解到網頁如何跟系統韌體互動，如:如何透過Linux指令去抓出設備的監控指標(記憶體占用率、CPU占用率、系統負載等等)並呈現在前端、如何將底層的syslog轉換成json並且呈現在前端、如何寫出一個可以調整系統的IP、DNS、Gateway、防火牆等等數值的全端專案等等...<br/><br/>
+      
+      投入職場以來，我對網頁開發的熱情始終如一，是個走到哪學到哪、一步一腳印的人，希望我的能力能為貴公司帶來最大的效益!
+      `,
       PortfolioCardList:[
         {img:"",url:"https://iga33087.github.io/",title:"遊戲王卡生產器",content:"做好玩的東西XD 是個能上傳圖片、選好外框、輸入文字，就能生產出遊戲王卡並且下載下來的東西",use:"HTML、CSS、Javascript"},
         //{img:"",url:"https://ntpc.donkeymove.com/Client/login",title:"長照交通接送平台",content:"進入小驢行公司的第一個專案，是個能供符合新北市長照交通條件的人預約接送的平台，廣泛的使用Google Map API以用來顯示地圖、畫出路線、計算車資，不僅使用前端框架Vue，也充分利用了Webpack模組化特點，讓程式碼不冗長、易維護、系統效能大幅提升，也能支援IE瀏覽器。",use:"HTML、CSS、Javascript、Vue、Webpack、Google API"},
