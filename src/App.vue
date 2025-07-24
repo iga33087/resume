@@ -36,16 +36,15 @@ const profileText=ref(`
 
 onMounted(()=> {
   gsap.set('.c1', {x:-500,opacity:0})
+  gsap.set('.c1 .cardBoxInnerTitle', {x:-500,opacity:0})
+  gsap.set('.c1 .cardBoxInnerContent', {y:500,opacity:0})
   let tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: '.c1',
-      start: "top",
-      scrub: true,
-      pin: true,
-    }
+    trigger: '.c1',
+    start: "top",
   })
   tl.to(".c1", {x:0,opacity:1})
-  tl.to(".c1-1", {x:300})
+  tl.to(".c1 .cardBoxInnerTitle",{x:0,opacity:1})
+  tl.to(".c1 .cardBoxInnerContent", {y:0,opacity:1})
   /*gsap.to('.c2', { 
     x: -300,
     scrollTrigger: {
